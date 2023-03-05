@@ -55,7 +55,6 @@ public class TestData {
     }
 
     static private int randomValue(int origin, int bound) {
-
         return ThreadLocalRandom.current().nextInt(origin, bound);
     }
 
