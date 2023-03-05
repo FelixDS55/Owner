@@ -48,21 +48,6 @@ public class TestData {
 
     }
 
-    public static String[] stateAndCity() {
-        String[][] test = {{"NCR", "Delhi"},
-                {"NCR", "Gurgaon"},
-                {"NCR", "Noida"},
-                {"Uttar Pradesh", "Agra"},
-                {"Uttar Pradesh", "Lucknow"},
-                {"Uttar Pradesh", "Merrut"},
-                {"Haryana", "Karnal"},
-                {"Haryana", "Panipat"},
-                {"Rajasthan", "Jaipur"},
-                {"Rajasthan", "Jaiselmer"}};
-        int index = faker.number().numberBetween(0, test.length);
-        return test[index] ;
-    }
-
     static public String getRandomDay() {
         int a = randomValue(1, 28);
         String day = a + "";
