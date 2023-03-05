@@ -3,13 +3,14 @@ package pages;
 import com.codeborne.selenide.selector.ByText;
 import pages.components.CalendarComponent;
 import pages.components.CheckResult;
+import tests.TestBase;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class PracticeFormPage {
+public class PracticeFormPage extends TestBase {
 
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckResult checkResult = new CheckResult();

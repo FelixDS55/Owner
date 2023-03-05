@@ -11,6 +11,7 @@ import pages.PracticeFormPage;
 import support.Attach;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
@@ -31,7 +32,6 @@ public class TestBase {
     }
     @BeforeEach
     void addListener() {
-
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
     @AfterEach

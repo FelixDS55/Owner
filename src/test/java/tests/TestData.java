@@ -4,26 +4,26 @@ import com.github.javafaker.Faker;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TestData {
     static Faker faker = new Faker(new Locale("en"));
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
-    static String[] birthday = dateFormat.format(faker.date().birthday()).split(" ");
-    static String[] stateAndCityArray = stateAndCity();
     static String firstName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             userEmail = faker.internet().emailAddress(),
             userNumber = faker.number().digits(10),
             currentAddress = faker.address().cityName(),
             gender = genderInputData(),
-            dayOfBirth = birthday[0],
-            monthOfBirth = birthday[1],
-            yearOfBirth = birthday[2],
+            dayOfBirth = getRandomDay(),
+            monthOfBirth = getRandomMonth(),
+            yearOfBirth = getRandomYear(),
             subject = subjectInputData(),
             hobby = hobbyInputData(),
             picPath = "src/test/resources/images.png",
-            state = stateAndCityArray[0],
-            city = stateAndCityArray[1];
+            state = "NCR",
+            city = getRandomCity();
 
 
     public static String genderInputData() {
@@ -63,7 +63,35 @@ public class TestData {
         return test[index] ;
     }
 
+    static public String getRandomDay() {
+        int a = randomValue(1, 28);
+        String day = a + "";
+        return day;
+    }
 
+    static private int randomValue(int origin, int bound) {
 
+        return ThreadLocalRandom.current().nextInt(origin, bound);
+    }
+
+    static public String getRandomMonth() {
+        String[] genderArray = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        int index = new Random().nextInt(genderArray.length);
+        String month = genderArray[index];
+        return month;
+    }
+
+    static public String getRandomYear() {
+        int b = randomValue(1980, 2022);
+        String year = b + "";
+        return year;
+    }
+
+    static public String getRandomCity() {
+        String[] genderArray = {"Delhi", "Gurgaon", "Noida"};
+        int index = new Random().nextInt(genderArray.length);
+        String city = genderArray[index];
+        return city;
+    }
 }
 
